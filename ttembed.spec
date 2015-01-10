@@ -3,6 +3,7 @@
 %bcond_without	tests		# build without tests
 
 Summary:	Remove embedding limitations from TrueType fonts
+Summary(pl.UTF-8):	Usuwanie ograniczeń osadzania z fontów TrueType
 Name:		ttembed
 Version:	1.1
 Release:	2
@@ -18,10 +19,16 @@ Remove embedding limitations from TrueType fonts, by setting the
 fsType field in the OS/2 table to zero. That's it; this program is a
 one-trick pony.
 
+%description -l pl.UTF-8
+Usuwanie ograniczeń osadzania z fontów TrueType poprzez ustawienie
+pola fsType w tablicy OS/2 na zero. To wszystko - ten program służy
+do jednej prostej czynności.
+
 %prep
 %setup -q
 
 %build
+CC="%{__cc}" \
 CFLAGS="%{rpmcflags}" \
 %{__make}
 
